@@ -4,14 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>Password Protected Page</title>
+    <title>WebTop</title>
     <style>
         html, body {
             margin: 0;
             width: 100%;
             height: 100%;
             font-family: Arial, Helvetica, sans-serif;
+            cursor: url(https://ldstabler.github.io/start/default.png),auto;
         }
+        #dialogText {
+            padding: 10px 30px;
+            color: grey;
+            background-color: #333333;
+        }
+        
         #dialogWrap {
             position: absolute;
             top: 0;
@@ -31,31 +38,37 @@
         #mainDialog {
             max-width: 400px;
             margin: 5px;
-            border: solid rgba(0,0,0,0) 1px;
             border-radius: 10px;
-            box-shadow: 3px 3px 5px 3px rgba(0,0,0,0);
             margin-left: auto;
             margin-right: auto;
+            background-color: rgba(255, 255, 255, 0);
             overflow: hidden;
             text-align: left;
         }
         #passArea {
             padding: 20px 30px;
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0);
         }
         #passArea > * {
             margin: 5px auto;
         }
         #pass {
-            width: 100%;
-            height: 40px;
-            font-size: 30px;
+             border-style: solid;
+             border-color: rgba(53, 120, 255, 1);
+             border-width: 2px;
+             width: 250px;
+             height: 23px;
+             font-family: arial;
+						 padding: 1px;
+						 background-color: rgba(53, 120, 255, 0.7);
+						 -text-color: rgba(0, 0, 0, 1);
+						 text-align: center;
         }
         
         #messageWrapper {
             float: left;
-            vertical-align: middle;
-            line-height: 30px;
+            vertical-align: center;
+            line-height: 100%;
         }
         
         .notifyText {
@@ -63,19 +76,33 @@
         }
         
         #invalidPass {
-            color: red;
+            color: black;
         }
         
         #success {
-            color: green;
+            color: black;
         }
         
         #submitPass {
-            font-size: 20px;
-            border-radius: 5px;
-            background-color: #E7E7E7;
-            border: solid gray 1px;
-            float: right;
+            border-style: outset;
+        border-width: 2px;
+        width: 34px;
+        height: 31px;
+        cursor: url(https://ldstabler.github.io/start/default.png),auto;
+        color: lightgrey;
+		  border-radius: 55%;
+		  font-size: 18px;
+		  text-align: center;
+		  background-color: rgba(0, 41, 124, 0.5);
+		  border-color: rgba(0, 41, 124, 1);
+        }
+        #submitPass:hover{
+          border-style: outset;
+				  border-width: 2px;
+				  width: 34px;
+				  height: 31px;
+				  color: lightgrey;
+				  background-color: rgba(0, 41, 124, 0.7);
         }
         #contentFrame {
             position: absolute;
@@ -84,7 +111,27 @@
             width: 100%;
             height: 100%;
         }
-  </style>
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        #pfp{
+     text-align: center;
+     border-style: ridge;
+     border-width: 5px;
+     border-color: #c0c0c0;
+	  border-radius: 10px;
+}
+    </style>
   </head>
   <body>
     <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
@@ -92,15 +139,22 @@
         <div id="dialogWrapCell">
             <div id="mainDialog">
                 <div id="passArea">
-                    <p id="passwordPrompt">Password</p>
-                    <input id="pass" type="password" name="pass" autofocus>
+                    <center>
+	<a id="pfp">
+			<img id="pfp" src="https://cdn.discordapp.com/attachments/829798317960462347/861250009181978624/HomePFP.png" width="200px;" alt="Profile Photo">
+	</a>
+			<h4 title="123" style="text-align: center; font-family: 'Verdana';">Lenni Stabler</h4>
+</center>
+                    <center><input title="Password" id="pass" type="password" name="pass" placeholder="Password" autofocus required></center>
+                    <center>
+                      <button id="submitPass" type="button">➲</button>
+                    </center>
                     <div>
                         <span id="messageWrapper">
-                            <span id="invalidPass" class="notifyText">Sorry, please try again.</span>
-                            <span id="success" class="notifyText">Success!</span>
+                            <span id="invalidPass" class="notifyText">Try again</span>
+                            <span id="success" class="notifyText"><img src="login.gif" width="20px;"></span>
                             &nbsp;
                         </span>
-                        <button id="submitPass" type="button">Submit</button>
                         <div style="clear: both;"></div>
                     </div>
                 </div>
@@ -240,7 +294,7 @@ a[0]++}h.sigBytes=4*c;return h}});g.PBKDF2=function(d,b,e){return n.create(e).co
         }( this, this.document ));
     </script>
     <script>
-        var pl = {"salt":"x51r+213qjwtUfsP8DMxYAz1laMYgnHI+K/v2U/8918=","iv":"od7KLS/40YNub/nArGJt2w==","data":"ir3xQyH5yz+GIQK2dYeXJ3OJG0s/jErY5jbVzxkQ0mwpnm/p6LX+v6+EkAAguIl1cXfdyL8bebK5z7Ak00eB10agBfEuInxoVzMOQLoNM577THiGrt4LotXjB4dsJYWa8ZlXMb9RYwDm80+pC1AuvHn2PQ8OBDfvfW7gbcu4jpMpG3EPjXKNrbgN4D318Dq/RaTnR6zC9OIVQ+PW/WjOeic8534pE2cUXLwhpiOg3SKZ/IzuWyrwYv1JUd7MqnZMsgxRUdfl1OJ163yuGTvTrXC07jO6RVNAfb44dsxfVld8gJA10C411bEVR+Ev2QclxBHkWwsxbiFzPkHAb83HA4Rb1fM3n/ikh/iLV/NpDp7flCLRIVA9m1rfNnB7O5LTegXACzkTt9NY3B1TQi5SPaQS9pPD+7KT7mz7HPUztVnoOjkW9eztgkPhywCAZNy53h15i/hqfopJK9QX50NR/Ai8OkK//y20judxlzIIJdQzPzNIuQYy+UZclo/YHQuPXZO4A5ctrvXLB96mdTa99R9Tw3C3J9gPeoU1gvzzctLQj0ghow1QzFciG8S9WSCSowesa6eJ5rXa5hZsOlzquQ3IepRI0sTOEpt6QvqeHB50+uTODJ6kAgePjUekvcoK"};
+        var pl = {"salt":"T2lopT7RPSsoChCz5Lnz5PpWnm29zM9GgY8vjL6Q2QU=","iv":"RfwC9R8GP8hfMnQL2aqrMw==","data":"2c5o1jA86BuWlR5hXCpI1n2OITMnuZoDLqOWKe7hSRX1KR4qIvflbJhec7lJ8+GMIJRjOrJ9Vzc1rRwrCKmfYBNkPEL3/9VrvUFb4Nne2H3RxH4AMboiHV1CYFUOLsBeZ9hSUm8BK5bB+BC37S7/rGwpTjK0fuOYTM1qkTEM0iWRkMBhyoFcbXv93Xo0fXPNC3rkhrS2spEsU/hI7vtyjKAk/Xaz0JxxDA7FN/0tJY61Ro6VczISLVmke3mfMB28asGH7F6UOvaR5yUt66Mcm8dovLk6hYSuU4+tX2plVT7G+o9Mfb8ksAGkIGB+9jB5WJUfSz6o0MNn+nJhB6XBKLmOLhwPmnTUxEzQQGCO3fenZjPkIoy/rAmZuFs0speFFoZBpSinVLQ62wLqYjECAZ+4ikCP0CGFn8PuTXST5DNUEL3NzBkP7/ytZK8eYX3E4quJTSnGWdQLjWzP9WuQzN+rYDQ/B+m8Vhl6dotUrHAEbGU4vjOxCG8IpREMEspETnUEWpbnXfvifB7Ti1Epc5nkd4uBqZgPbRvQ16i8ZWzqdZkkfwgF8Qq8u/GaSPSuAgNmrw0jKMCcAWOP+Bw1ewXTfaHUpQ7wub9FmoK+2JyuxW4wN/B/t7Yyo2H9kBz1"};
         
         var submitPass = document.getElementById('submitPass');
         var passEl = document.getElementById('pass');
