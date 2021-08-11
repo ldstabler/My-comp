@@ -15,6 +15,7 @@ div.topbar{
       border-color: grey;
       border-width: 2px;
       border-style: outset;
+      right: 1px;
     }
 .topbar{
       position: absolute;
