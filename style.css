@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+html{
+    cursor: url(https://ldstabler.github.io/start/default.png),auto;
+    background-image: url(https://www.ytechb.com/wp-content/uploads/2021/06/Windows-11-Wallpaper-thumb-2.webp);
+    background-repeat: no-repeat;
+    background-size: 1460px 780px;
+  }
+div.topbar{
+      top: 1px;
+      width: 1360.45px;
+      background-color: silver;
+      position: absolute;
+      height: 35px;
+      left: 1px;
+      border-color: grey;
+      border-width: 2px;
+      border-style: outset;
+    }
+.topbar{
+      position: absolute;
+      top: 2px;
+      margin: 0 auto;
+    }
+.logo{
+      position: absolute;
+      left: 2px;
+      top: 1px;
+      cursor: url(https://ldstabler.github.io/start/default.png),auto;
+    }
+.dropdown-content {
+      width: 20px;
+      height: 200px;
+}
+.bottombar{
+  position: absolute;
+  bottom: 0px;
+  background: black;
+  height: 38px;
+  left: 0px;
+  right: 0px;
+}
